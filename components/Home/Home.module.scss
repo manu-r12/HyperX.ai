@@ -1,0 +1,177 @@
+.container{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    --dot-bg: black;
+    --dot-color: #acabab41;
+    --dot-size: 2px;
+    --dot-space: 62px;
+      background:
+          linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+          linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+          var(--dot-color);
+}
+
+$projectBoxBg : #10151D;
+$HxGray: #acabab;
+$HxGreen-1: #0FC06B;
+$smallLetterSpacing: 0.9px;
+
+.logoContainer{
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+
+    .logoIcon{
+        position: relative;
+        height: 50px;
+        width: 50px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    h1{
+        font-weight: 500;
+        letter-spacing: 1px;
+
+    }
+}
+
+
+.middleContainer{
+    width: 100%;
+    display: flex;
+    margin-top: 100px;
+
+    .welcomeText{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        h1{
+            font-weight: 500;
+            letter-spacing: 0.8px;
+            font-size: 2.2rem;
+        }
+
+        p{ 
+            color: $HxGray;
+            letter-spacing: 0.9px;
+            font-weight: 300;
+            font-size: 0.9rem;
+        }
+    }
+
+    .projectSetupContainer{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        gap: 40px;
+
+        h1{
+            font-size: 1.3rem;
+            letter-spacing: $smallLetterSpacing;
+            // color: $HxGreen-1;
+        }
+      
+
+        .projectSetupBox{
+            cursor: pointer;
+            display: flex;
+            width: 200px;
+            height: 150px;
+            padding: 20px;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid $HxGreen-1;
+            background-color: black;
+            border-radius: 5px;
+
+            &:hover{
+                scale: 1.04;
+            }
+
+            p{
+                font-weight: 300;
+                font-size: 0.9rem;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                letter-spacing: $smallLetterSpacing;
+            }
+
+        }
+    }
+   
+}
+
+
+.bottomContainer{
+    width: 100%;
+    margin: 150px 100px;
+
+
+
+    .heading{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 80%;
+        // margin: 0 100px;
+        h1{
+            font-size: 1.3rem;
+            letter-spacing: $smallLetterSpacing;
+        }
+
+        p{
+            font-size: 0.8rem;
+            font-weight: 300;
+            border-bottom: 1px solid $HxGray;
+            cursor: pointer;
+            letter-spacing: $smallLetterSpacing;
+            
+
+            &:hover{
+                color: white;
+                scale: 1.1;
+            }
+        }
+    }
+
+    .recentProjectsContainer{
+        width: 100%;
+        margin-top: 40px;
+        display: flex;
+        gap: 20px;
+
+        .recentProjectBox{
+            
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+            border: 1px solid $HxGray;
+            border-radius: 5px;
+            padding: 20px;
+
+
+
+            .langLogoIcon{
+                position: relative;
+                height: 30px;
+                width: 30px;
+                overflow: hidden;
+            }
+        }
+
+    }
+}
