@@ -1,9 +1,24 @@
-import Image from "next/image";
+import HomePage from "@/components/Home/home";
+import { getServerSession } from "next-auth";
+import { options } from "./api/auth/[...nextauth]/options";
+import { redirect } from "next/navigation";
 
-export default function Home() {
+
+
+export default async function Home() {
+
+  const session = await getServerSession(options);
+
+  if (!session){
+    redirect('/signIn')
+  }else{
+
+
   return (
     <>
-     Hello From HyperX.ai
+      <HomePage userSession={session?.user}/>
     </>
   );
+}
+
 }
