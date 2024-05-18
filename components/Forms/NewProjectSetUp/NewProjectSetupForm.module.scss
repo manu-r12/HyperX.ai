@@ -1,0 +1,52 @@
+$HxGreen-1: #0FC06B;
+$HxGray: #acabab;
+
+
+.container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+
+
+    .formContainer{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        gap: 10px;
+
+
+        .inputDiv{
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            gap: 20px;
+
+            label{
+                letter-spacing: 0.9px;
+                
+            }
+
+            input{
+                border-radius: 6px;
+                background-color: black;
+                border: 1.5px solid $HxGreen-1;
+                color: white; 
+                padding: 0.5rem;
+                outline: none;
+            
+            }
+
+            select{
+                border: 1.5px solid $HxGreen-1;
+                background-color: black;
+                color: white; /* Ensure text is visible on black background */
+                padding: 0.5rem;
+                border-radius: 4px;
+                adding: 10px;
+                outline: none;
+            }
+        }
+    }
+}

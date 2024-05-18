@@ -2,6 +2,7 @@
     width: 100%;
     height: 100vh;
     overflow: hidden;
+    position: relative;
     --dot-bg: black;
     --dot-color: #acabab41;
     --dot-size: 2px;
@@ -167,8 +168,8 @@ $smallLetterSpacing: 0.9px;
 
             .langLogoIcon{
                 position: relative;
-                height: 30px;
-                width: 30px;
+                height: 20px;
+                width: 20px;
                 overflow: hidden;
             }
         }

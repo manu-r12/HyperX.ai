@@ -2,6 +2,7 @@ import HomePage from "@/components/Home/home";
 import { getServerSession } from "next-auth";
 import { options } from "./api/auth/[...nextauth]/options";
 import { redirect } from "next/navigation";
+import CodeEditor from "@/components/CodeEditor/codeEditor";
 
 
 
@@ -16,7 +17,8 @@ export default async function Home() {
 
   return (
     <>
-      <HomePage userSession={session?.user}/>
+      {/* <HomePage userSession={session?.user}/> */}
+      <CodeEditor/>
     </>
   );
 }

@@ -1,4 +1,4 @@
-
+'use client'
 import React, { use, useEffect, useState } from 'react'
 import styles from './Home.module.scss'
 import Image from 'next/image'
@@ -7,12 +7,17 @@ import { MdOutlineCloudUpload } from "react-icons/md";
 import { FaGithub } from 'react-icons/fa';
 import SignOutButton from '../Buttons/SignOutButton/SignOutButton';
 import { UserSession } from '@/types/UserSession';
+import SetUpNewProject from '../PopUpBoxes/SetUpNewProject /setUpNewProject';
+
+
 
 interface HomePageProps {
     userSession?: UserSession;
   }
 
 const HomePage: React.FC<HomePageProps> =  (userSession) => {
+
+  const [isNewProjectSetUpPopBoxOpen, setNewProjectSetUpPopBoxOpen] = useState<boolean>(false)
 
 
   return (
@@ -28,7 +33,7 @@ const HomePage: React.FC<HomePageProps> =  (userSession) => {
                 <p>Github</p>
                 <FaGithub size={28}/>
             </div>
-            <div className='flex items-center gap-2 tracking-widest cursor-pointer hover:scale-[1.1]'>
+            <div className='flexf items-center gap-2 tracking-widest cursor-pointer hover:scale-[1.1]'>
                <SignOutButton imageUrl={userSession.userSession?.image}/>
             </div>
         </div>
@@ -51,7 +56,9 @@ const HomePage: React.FC<HomePageProps> =  (userSession) => {
                         <p><MdOutlineCloudUpload size={30}/> Upload an existing file to edit</p>
                     </div>
 
-                    <div className={styles.projectSetupBox}>
+                    <div 
+                    onClick={() => setNewProjectSetUpPopBoxOpen(!isNewProjectSetUpPopBoxOpen)}
+                    className={styles.projectSetupBox}>
                         <p><TiPlusOutline size={30}/>Create a new project</p>
                     </div>
                 </div>
@@ -91,7 +98,7 @@ const HomePage: React.FC<HomePageProps> =  (userSession) => {
                     </div>
             </div>
         </div>
-
+        {isNewProjectSetUpPopBoxOpen && <SetUpNewProject/>}
     </div>
   )
 }

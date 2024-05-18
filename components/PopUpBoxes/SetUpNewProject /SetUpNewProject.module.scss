@@ -1,0 +1,28 @@
+$HxGreen-1: #0FC06B;
+$HxGray: #acabab;
+
+.container{
+    position: absolute;
+    width: 550px;
+    height: 500px;
+    border: 1px solid $HxGray;
+    background: #000;
+    border-radius: 8px;
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    .heading{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+
+        h1{
+            letter-spacing: 0.8px;
+        }
+    }
+}
+
