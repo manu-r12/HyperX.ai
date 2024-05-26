@@ -13,7 +13,7 @@ import SetUpNewProject from '../PopUpBoxes/SetUpNewProject /setUpNewProject';
 
 interface HomePageProps {
     userSession?: UserSession;
-  }
+}
 
 const HomePage: React.FC<HomePageProps> =  (userSession) => {
 

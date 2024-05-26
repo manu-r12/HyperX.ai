@@ -1,15 +1,21 @@
+"use client"
 import React, { useState } from 'react'
 import styles from './NewProjectSetupForm.module.scss'
+import { useRouter } from 'next/navigation';
 
 
 const NewProjectSetupForm = () => {
 
+ 
+
     const [fileName, setFileName] = useState('');
     const [fileType, setFileType] = useState('');
 
-
+    const router = useRouter()
   
     const handleSubmit = (e: any) => {
+      router.push("/editor")
+
       e.preventDefault();
       console.log('File Name:', fileName);
       console.log('File Type:', fileType);

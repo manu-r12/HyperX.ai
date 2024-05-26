@@ -17,8 +17,7 @@ export default async function Home() {
 
   return (
     <>
-      {/* <HomePage userSession={session?.user}/> */}
-      <CodeEditor/>
+      <HomePage userSession={session?.user}/>
     </>
   );
 }
