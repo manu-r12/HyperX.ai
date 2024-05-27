@@ -1,4 +1,3 @@
-import { addUserToFirestore } from "@/utils/addNewUserToFirebase";
 import { NextAuthOptions } from "next-auth";
 import GitHubProvider from 'next-auth/providers/github'
 
@@ -12,8 +11,11 @@ export const options: NextAuthOptions = {
       ],
       callbacks: {
         async signIn({user, account, profile}) {
-            console.log("Triggred")
-            await addUserToFirestore(user)
+            console.log("Triggerd")
+            if (user && user.email){
+              console.log("Yes we are getting the data,", user)
+            }
+
             return true;
         }
 

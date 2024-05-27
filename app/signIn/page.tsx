@@ -1,7 +1,7 @@
 import SignInPage from '@/components/SignIn/signIn'
 import { getServerSession } from 'next-auth'
 import { redirect } from 'next/navigation'
-import { options } from '../api/auth/[...nextauth]/options'
+import { options } from '@/nextAuth/options'
 
 const SignIn = async () => {
 
