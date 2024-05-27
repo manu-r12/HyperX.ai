@@ -8,6 +8,8 @@ import { FaGithub } from 'react-icons/fa';
 import SignOutButton from '../Buttons/SignOutButton/SignOutButton';
 import { UserSession } from '@/types/UserSession';
 import SetUpNewProject from '../PopUpBoxes/SetUpNewProject /setUpNewProject';
+import Link from 'next/link';
+import { hyperX_github_repo_link } from '@/database/links/links';
 
 
 
@@ -29,10 +31,10 @@ const HomePage: React.FC<HomePageProps> =  (userSession) => {
                 </div>
                 <h1>HyperX.ai</h1>
             </div>
-            <div className='flex items-center gap-2 tracking-widest cursor-pointer hover:scale-[1.1]'>
-                <p>Github</p>
-                <FaGithub size={28}/>
-            </div>
+                <Link target='_blank' className='flex items-center gap-2 tracking-widest cursor-pointer hover:scale-[1.1]' href={hyperX_github_repo_link}>
+                    <p>Github</p>
+                    <FaGithub size={22}/>
+                </Link>
             <div className='flexf items-center gap-2 tracking-widest cursor-pointer hover:scale-[1.1]'>
                <SignOutButton imageUrl={userSession.userSession?.image}/>
             </div>

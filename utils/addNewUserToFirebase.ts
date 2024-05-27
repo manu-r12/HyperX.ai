@@ -2,6 +2,16 @@ import { User } from "next-auth";
 import { db } from "@/database/firebase/firebase";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 
+
+/* 
+
+function to add user to the firbase with following properties:
+name , uid and email
+
+don't save if user already exsits 
+
+*/
+
 export const addUserToFirestore = async (user: User) =>{
 
     if (user && user.email){
