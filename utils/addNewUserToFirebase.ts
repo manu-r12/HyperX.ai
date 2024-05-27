@@ -11,20 +11,19 @@ export const addUserToFirestore = async (user: User) =>{
 
         if (userSnap.exists()){
 
-          console.log("Well Well user alreayd exsist so no need to save user again!!")
+          console.log("Well Well User already exists, so no need to save user again!! 🙂")
           console.log("Here is the data", userSnap.data())
 
         }else{
 
           try{
-
             await setDoc(userRef, 
-                {
+            {
               uid: user.id,
               name: user.name,
               friends: []
-                 });
-                 
+            });
+
           }catch (error){
               console.log("OOPS error in Saving the user data to firebase !!", error)
           }
