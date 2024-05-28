@@ -9,6 +9,8 @@ function to add user to the firbase with following properties:
 name , uid and email
 
 don't save if user already exsits 
+show message for example => user alreatd exsist 
+show message for example => user alreatd exsist 
 
 */
 

@@ -6,10 +6,11 @@ const SignInButton = () => {
   return (
     <div className=" mt-20 w-full flex items-center justify-center">
         <button
-        style={{border: "1px solid #0FC06B"}}
-        className="bg-black rounded-md px-4 py-4 text-white flex items-center gap-3"
+        style={{border: "1px solid #0FC06B", fontFamily: "Poppins"}}
+        className="bg-black rounded-md px-4 py-4 text-white flex items-center gap-3 tracking-wider transition-all hover:scale-[1.04]"
         onClick={() => signIn("github", { callbackUrl: "/" })}
         type="button"
+        
         >
         Sign In With GitHub <FaGithub size={20}/>
         </button>

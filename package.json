@@ -11,6 +11,10 @@
   "dependencies": {
     "@codemirror/lang-javascript": "^6.2.2",
     "@react-icons/all-files": "^4.1.0",
+    "@reduxjs/toolkit": "^2.2.5",
+    "@uiw/codemirror-theme-abcdef": "^4.22.1",
+    "@uiw/codemirror-theme-console": "^4.22.1",
+    "@uiw/codemirror-theme-github": "^4.22.1",
     "@uiw/react-codemirror": "^4.22.1",
     "firebase": "^10.12.2",
     "install": "^0.13.0",
@@ -20,6 +24,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.2.1",
+    "react-redux": "^9.1.2",
+    "redux": "^5.0.1",
     "sass": "^1.77.1"
   },
   "devDependencies": {

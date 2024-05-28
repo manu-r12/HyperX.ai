@@ -10,6 +10,7 @@ const NewProjectSetupForm = () => {
 
     const [fileName, setFileName] = useState('');
     const [fileType, setFileType] = useState('');
+    const [workspace, setWorkspace] = useState('')
 
     const router = useRouter()
   
@@ -26,6 +27,17 @@ const NewProjectSetupForm = () => {
     <div className={styles.container}>
     <form onSubmit={handleSubmit} 
           className={styles.formContainer}>
+      <div className={styles.inputDiv}>
+        <label htmlFor="workspace">Workspace Name</label>
+        <input
+          placeholder='My Workspace'
+          type="text"
+          id="workspace"
+          value={fileName}
+          onChange={(e) => setFileName(e.target.value)}
+          required
+        />
+      </div>
       <div className={styles.inputDiv}>
         <label htmlFor="fileName">File Name</label>
         <input
