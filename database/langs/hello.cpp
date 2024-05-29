@@ -3,6 +3,32 @@
 #include <iostream>
 #include <vector>
 
+// some functions to test on the code editor
+
+int factorial(int n)
+{
+    if (n == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        return n * factorial(n - 1);
+    }
+}
+
+int fibonacci(int n)
+{
+    if (n <= 1)
+    {
+        return n;
+    }
+    else
+    {
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+}
+
 std::string find(const std::vector<int> &ar, int t)
 {
     // Iterate through the array
@@ -15,6 +41,43 @@ std::string find(const std::vector<int> &ar, int t)
     }
     return "couldn't find";
 }
+
+// OOPS Examples
+
+class Shape
+{
+public:
+    virtual double area() = 0;
+};
+
+class Circle : public Shape
+{
+private:
+    double radius;
+
+public:
+    Circle(double radius) : radius(radius) {}
+
+    double area() override
+    {
+        return 3.14 * radius * radius;
+    }
+};
+
+class Rectangle : public Shape
+{
+private:
+    double length;
+    double breadth;
+
+public:
+    Rectangle(double length, double breadth) : length(length), breadth(breadth) {}
+
+    double area() override
+    {
+        return length * breadth;
+    }
+};
 
 int main()
 {
