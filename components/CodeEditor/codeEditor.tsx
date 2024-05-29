@@ -1,4 +1,5 @@
 "use client"
+
 import React, { useState } from 'react'
 import styles from './CodeEditor.module.scss'
 import Image from 'next/image'
@@ -15,11 +16,13 @@ import { selectCodeSession } from '@/redux/selectors/selectCodeSession';
 
 const CodeEditor = () => {
 
-  const [currentState, setCurrentState] = useState("")
+  const [ currentState, setCurrentState ] = useState(" ")
   const router = useRouter()  
 
   const codeSession = useSelector(selectCodeSession)
 
+// NAME TO BE CHANGED 
+// CODESESSION OR SELECTCODESESSION TO => NEWPROJECT
 
   console.log("Here is the code session =>", codeSession)
 

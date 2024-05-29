@@ -10,14 +10,6 @@ const initialState: CodeSessionItem = {
    codeSession: null
 }
 
-// let it be status to know session 
-type CodeSessionEnded = {
-    status: boolean
-    time: number
-    workSpace: WriteParams | Number
-}
-
-
 const CodeSessionSlice = createSlice({
     name: "codeSession",
     initialState,
@@ -30,5 +22,6 @@ const CodeSessionSlice = createSlice({
 })
 
 
-export const {createCodeSession} = CodeSessionSlice.actions;
+
+export const { createCodeSession } = CodeSessionSlice.actions;
 export const codeSessionReducer =  CodeSessionSlice.reducer
