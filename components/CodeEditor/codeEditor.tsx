@@ -9,6 +9,8 @@ import { useRouter } from 'next/navigation';
 
 import Editor from '../CodeMirror/CodeMirror';
 import { LanguagesIcons } from '@/utils/langIcons';
+import { useSelector } from 'react-redux';
+import { getCodeSession } from '@/redux/selectors/getCodeSession';
 
 
 
@@ -28,6 +30,8 @@ const CodeEditor = () => {
   const [currentState, setCurrentState] = useState("")
   const router = useRouter()  
 
+  const codeSession = useSelector(getCodeSession)
+  console.log("Here is the code session =>", codeSession)
 
 
   return (

@@ -3,11 +3,11 @@
 export interface File {
     fileName: string
     fileId: string
-    code: [string]    
+    code: string 
 }
 
 
 export interface Files {
-    files: [File]
+    files: File[]
     uid: string
 }

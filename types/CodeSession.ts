@@ -8,6 +8,6 @@ import { Workspace } from "./Workspace";
 // 
 
 export interface CodeSession {
-    workspace: Workspace
-    files: [Files]
+    workspace: Workspace | null
+    files: Files
 }

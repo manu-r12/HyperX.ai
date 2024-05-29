@@ -2,24 +2,35 @@
 import React, { useState } from 'react'
 import styles from './NewProjectSetupForm.module.scss'
 import { useRouter } from 'next/navigation';
+import { initCodeSession } from '@/utils/createCodeSession';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '@/redux/store/store';
+import { createCodeSession } from '@/redux/slices/CodeSession';
 
 
 const NewProjectSetupForm = () => {
 
- 
-
     const [fileName, setFileName] = useState('');
     const [fileType, setFileType] = useState('');
-    const [workspace, setWorkspace] = useState('')
+    const [workspaceName, setWorkspaceName] = useState('')
 
-    const router = useRouter()
+    // reset all the states 
+    function resetState(){
+      setFileName(" "); setWorkspaceName(" "); setFileType(" ");
+    }
+
+    const dispatch = useDispatch<AppDispatch>();
   
     const handleSubmit = (e: any) => {
-      router.push("/editor")
-
       e.preventDefault();
-      console.log('File Name:', fileName);
-      console.log('File Type:', fileType);
+
+      // fullname for example -> server + py would be "server.py"
+      const fullFilename = fileName + "." + fileType;
+
+      const codeSession = initCodeSession(fullFilename, workspaceName);
+      dispatch(createCodeSession({codeSession}));
+      resetState();
+      
     };
   
     
@@ -33,8 +44,8 @@ const NewProjectSetupForm = () => {
           placeholder='My Workspace'
           type="text"
           id="workspace"
-          value={fileName}
-          onChange={(e) => setFileName(e.target.value)}
+          value={workspaceName}
+          onChange={(e) => setWorkspaceName(e.target.value)}
           required
         />
       </div>

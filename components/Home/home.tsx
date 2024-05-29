@@ -22,8 +22,6 @@ const HomePage: React.FC<HomePageProps> =  (userSession) => {
   const [isNewProjectSetUpPopBoxOpen, setNewProjectSetUpPopBoxOpen] = useState<boolean>(false)
 
 
-  const uid = getUuid()  
-  console.log("Unique Id =>", uid)
 
   return (
     <div className={styles.container}>
