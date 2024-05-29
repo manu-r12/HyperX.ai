@@ -1,4 +1,3 @@
-import { Workspace } from './../../../types/Workspace';
 import { CodeSession } from '@/types/CodeSession';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
@@ -11,13 +10,20 @@ const initialState: CodeSessionItem = {
    codeSession: null
 }
 
+// let it be status to know session 
+type CodeSessionEnded = {
+    status: boolean
+    time: number
+    workSpace: WriteParams | Number
+}
+
 
 const CodeSessionSlice = createSlice({
     name: "codeSession",
     initialState,
     reducers: {
         createCodeSession : (state, action: PayloadAction<CodeSessionItem>) => {
-            state = action.payload
+            state.codeSession = action.payload.codeSession
             console.log("The State for createCodeSession =>", state)
         }
     }
@@ -25,4 +31,4 @@ const CodeSessionSlice = createSlice({
 
 
 export const {createCodeSession} = CodeSessionSlice.actions;
-export const CodeSessionReducer =  CodeSessionSlice.reducer
+export const codeSessionReducer =  CodeSessionSlice.reducer

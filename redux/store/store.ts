@@ -1,12 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { CodeSessionReducer } from '../slices/CodeSession';
+import { codeSessionReducer } from '../slices/CodeSession';
 
-export const store = configureStore({
+export const store = () =>{ 
+    return configureStore({
     reducer: {
-        codeSession: CodeSessionReducer
+        codeSession: codeSessionReducer
     }
 })
+}
 
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch
+export type AppStore = ReturnType<typeof store>
+export type RootState = ReturnType<AppStore['getState']>
+export type AppDispatch = AppStore['dispatch']

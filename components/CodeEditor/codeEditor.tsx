@@ -10,27 +10,17 @@ import { useRouter } from 'next/navigation';
 import Editor from '../CodeMirror/CodeMirror';
 import { LanguagesIcons } from '@/utils/langIcons';
 import { useSelector } from 'react-redux';
-import { getCodeSession } from '@/redux/selectors/getCodeSession';
+import { selectCodeSession } from '@/redux/selectors/selectCodeSession';
 
-
-
-// TODO: things we need to make a cool editor
-/* 
-1. code mirror (for making the actual editor component) ✅
-2. redux for global satate managment 
-3. database to persist the data ✅
-4. multiple files tab ✅
-5. Connect it with the AI Model for auto compeletion 
-6. multiple users can work with single file (collab)
-7. auto save (optional ?)
-*/
 
 const CodeEditor = () => {
 
   const [currentState, setCurrentState] = useState("")
   const router = useRouter()  
 
-  const codeSession = useSelector(getCodeSession)
+  const codeSession = useSelector(selectCodeSession)
+
+
   console.log("Here is the code session =>", codeSession)
 
 
@@ -41,7 +31,7 @@ const CodeEditor = () => {
                 <div className={styles.logoIcon}>
                     <Image alt='hyper-x-log' fill src={"/icons/hyperxLogo.png"}/>
                 </div>
-                <h1>HyperX.ai</h1>
+                <h1 onClick={() => console.log("Data,")}>HyperX.ai</h1>
             </div>
             <div className='flex items-center gap-5'>
                 <div 

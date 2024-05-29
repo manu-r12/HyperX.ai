@@ -3,9 +3,10 @@ import React, { useState } from 'react'
 import styles from './NewProjectSetupForm.module.scss'
 import { useRouter } from 'next/navigation';
 import { initCodeSession } from '@/utils/createCodeSession';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '@/redux/store/store';
 import { createCodeSession } from '@/redux/slices/CodeSession';
+import { selectCodeSession } from '@/redux/selectors/selectCodeSession';
 
 
 const NewProjectSetupForm = () => {
@@ -14,7 +15,10 @@ const NewProjectSetupForm = () => {
     const [fileType, setFileType] = useState('');
     const [workspaceName, setWorkspaceName] = useState('')
 
-    // reset all the states 
+    const router = useRouter()
+
+    const code = useSelector(selectCodeSession)
+
     function resetState(){
       setFileName(" "); setWorkspaceName(" "); setFileType(" ");
     }
@@ -23,13 +27,15 @@ const NewProjectSetupForm = () => {
   
     const handleSubmit = (e: any) => {
       e.preventDefault();
-
-      // fullname for example -> server + py would be "server.py"
+      
       const fullFilename = fileName + "." + fileType;
 
       const codeSession = initCodeSession(fullFilename, workspaceName);
       dispatch(createCodeSession({codeSession}));
       resetState();
+      console.log('Proceeding to the code editor.. 🚀✅')
+      console.log('Data ✅ =>', code)
+      router.push("/editor")
       
     };
   
