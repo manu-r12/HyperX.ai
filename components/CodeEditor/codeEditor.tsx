@@ -28,6 +28,8 @@ const CodeEditor = () => {
   const [currentState, setCurrentState] = useState("")
   const router = useRouter()  
 
+
+
   return (
     <div className={styles.container}>
         <div className={styles.navBarContainer}>

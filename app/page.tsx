@@ -2,7 +2,8 @@ import HomePage from "@/components/Home/home";
 import { getServerSession } from "next-auth";
 import { options } from "@/nextAuth/options";
 import { redirect } from "next/navigation";
-import CodeEditor from "@/components/CodeEditor/codeEditor";
+
+
 
 
 
@@ -13,6 +14,7 @@ export default async function Home() {
   if (!session){
     redirect('/signIn')
   }else{
+
 
 
   return (

@@ -3,3 +3,4 @@ export interface UserSession {
     email?: string | null | undefined;
     image?: string | null | undefined;
   }
+

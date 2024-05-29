@@ -10,7 +10,7 @@ import { UserSession } from '@/types/UserSession';
 import SetUpNewProject from '../PopUpBoxes/SetUpNewProject /setUpNewProject';
 import Link from 'next/link';
 import { hyperX_github_repo_link } from '@/database/links/links';
-
+import { getUuid } from '@/hooks/getUuid';
 
 
 interface HomePageProps {
@@ -21,6 +21,9 @@ const HomePage: React.FC<HomePageProps> =  (userSession) => {
 
   const [isNewProjectSetUpPopBoxOpen, setNewProjectSetUpPopBoxOpen] = useState<boolean>(false)
 
+
+  const uid = getUuid()  
+  console.log("Unique Id =>", uid)
 
   return (
     <div className={styles.container}>
