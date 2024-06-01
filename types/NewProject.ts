@@ -2,12 +2,7 @@ import { Files } from "./File";
 import { Workspace } from "./Workspace";
 
 
-// for reduc store for state persistant ✅
-
-// this is how it is gonna work
-// 
-
-export interface CodeSession {
+export interface NewProject {
     workspace: Workspace | null
     files: Files
 }

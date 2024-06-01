@@ -11,7 +11,7 @@ import { useRouter } from 'next/navigation';
 import Editor from '../CodeMirror/CodeMirror';
 import { LanguagesIcons } from '@/utils/langIcons';
 import { useSelector } from 'react-redux';
-import { selectCodeSession } from '@/redux/selectors/selectCodeSession';
+import { selectNewProject } from '@/redux/selectors/selectCodeSession';
 
 
 const CodeEditor = () => {
@@ -19,12 +19,12 @@ const CodeEditor = () => {
   const [ currentState, setCurrentState ] = useState(" ")
   const router = useRouter()  
 
-  const codeSession = useSelector(selectCodeSession)
+  const newProject = useSelector(selectNewProject)
 
 // NAME TO BE CHANGED 
 // CODESESSION OR SELECTCODESESSION TO => NEWPROJECT
 
-  console.log("Here is the code session =>", codeSession)
+  console.log("Here is the code session =>", newProject)
 
 
   return (

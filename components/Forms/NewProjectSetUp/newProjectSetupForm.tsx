@@ -2,11 +2,11 @@
 import React, { useState } from 'react'
 import styles from './NewProjectSetupForm.module.scss'
 import { useRouter } from 'next/navigation';
-import { initCodeSession } from '@/utils/createCodeSession';
+import { initNewProject } from '@/utils/createNewProject';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '@/redux/store/store';
-import { createCodeSession } from '@/redux/slices/CodeSession';
-import { selectCodeSession } from '@/redux/selectors/selectCodeSession';
+import { createNewProject } from '@/redux/slices/CodeSession';
+import { selectNewProject } from '@/redux/selectors/selectCodeSession';
 
 
 const NewProjectSetupForm = () => {
@@ -17,7 +17,7 @@ const NewProjectSetupForm = () => {
 
     const router = useRouter()
 
-    const code = useSelector(selectCodeSession)
+    const selectedNewProject = useSelector(selectNewProject)
 
     function resetState(){
       setFileName(" "); setWorkspaceName(" "); setFileType(" ");
@@ -30,11 +30,10 @@ const NewProjectSetupForm = () => {
       
       const fullFilename = fileName + "." + fileType;
 
-      const codeSession = initCodeSession(fullFilename, workspaceName);
-      dispatch(createCodeSession({codeSession}));
+      const newProjectInit = initNewProject(fullFilename, workspaceName);
+
+      dispatch(createNewProject(newProjectInit));
       resetState();
-      console.log('Proceeding to the code editor.. 🚀✅')
-      console.log('Data ✅ =>', code)
       router.push("/editor")
       
     };

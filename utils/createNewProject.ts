@@ -1,9 +1,10 @@
 import { getUuid } from "@/hooks/getUuid"
-import { CodeSession } from "@/types/CodeSession"
+import { NewProject } from "@/types/NewProject"
 import { Files } from "@/types/File"
 import { Workspace } from "@/types/Workspace"
+import { NewProjectItem } from "@/redux/slices/CodeSession"
 
-export const initCodeSession = (full_fileName: string, workspaceName: string): CodeSession =>{
+export const initNewProject = (full_fileName: string, workspaceName: string): NewProject =>{
 
     const file = {
         fileName: full_fileName,
@@ -23,7 +24,7 @@ export const initCodeSession = (full_fileName: string, workspaceName: string): C
 
       }
 
-      const codeSession: CodeSession = {files, workspace}
+      const newProject: NewProject = {files, workspace}
 
-      return codeSession
+      return newProject
 }

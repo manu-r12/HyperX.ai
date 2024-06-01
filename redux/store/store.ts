@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { codeSessionReducer } from '../slices/CodeSession';
+import { newProjectReducer } from '../slices/CodeSession';
 
 export const store = () =>{ 
     return configureStore({
     reducer: {
-        codeSession: codeSessionReducer
+        newProject: newProjectReducer
     }
 })
 }

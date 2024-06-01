@@ -1,27 +1,27 @@
-import { CodeSession } from '@/types/CodeSession';
+import { NewProject } from '@/types/NewProject';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 
-interface CodeSessionItem {
-    codeSession: CodeSession | null
+export interface NewProjectItem {
+    newProject: NewProject | null
 }
 
-const initialState: CodeSessionItem = {
-   codeSession: null
+const initialState: NewProjectItem = {
+    newProject: null
 }
 
-const CodeSessionSlice = createSlice({
-    name: "codeSession",
+const NewProjectSlice = createSlice({
+    name: "newProject",
     initialState,
     reducers: {
-        createCodeSession : (state, action: PayloadAction<CodeSessionItem>) => {
-            state.codeSession = action.payload.codeSession
-            console.log("The State for createCodeSession =>", state)
+        createNewProject : (state, action: PayloadAction<NewProject>) => {
+            state.newProject = action.payload
+            console.log("The State for createCodeSession =>", state.newProject)
         }
     }
 })
 
 
 
-export const { createCodeSession } = CodeSessionSlice.actions;
-export const codeSessionReducer =  CodeSessionSlice.reducer
+export const { createNewProject } = NewProjectSlice.actions;
+export const newProjectReducer =  NewProjectSlice.reducer
