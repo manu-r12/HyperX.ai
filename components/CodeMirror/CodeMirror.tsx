@@ -1,6 +1,5 @@
 "use client"
 import { javascript } from '@codemirror/lang-javascript';
-import { consoleDark } from '@uiw/codemirror-theme-console';
 import { githubDark } from '@uiw/codemirror-theme-github';
 import CodeMirror from '@uiw/react-codemirror';
 import { useCallback, useState } from 'react';
@@ -12,17 +11,16 @@ export default function Editor() {
 
     const [value, setValue] = useState("const hello = hello worldconsole.log(hello");
     
-    // this the github dark theme");
-
+    // this the github dark theme
     const onChange = useCallback((val: string) => {
       setValue(val);
     }, []);
 
     return <CodeMirror 
-    theme={githubDark}
-    value={value} 
-    height="85vh" 
-    extensions={[javascript({ jsx: true })]} 
-    onChange={onChange}
-    />;
+            theme={githubDark}
+            value={value} 
+            height="85vh" 
+            extensions={[javascript({ jsx: true })]} 
+            onChange={onChange}
+          />;
 }

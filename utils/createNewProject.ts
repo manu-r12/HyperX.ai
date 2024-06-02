@@ -1,30 +1,29 @@
 import { getUuid } from "@/hooks/getUuid"
 import { NewProject } from "@/types/NewProject"
-import { Files } from "@/types/File"
-import { Workspace } from "@/types/Workspace"
-import { NewProjectItem } from "@/redux/slices/CodeSession"
 
-export const initNewProject = (full_fileName: string, workspaceName: string): NewProject =>{
 
-    const file = {
-        fileName: full_fileName,
+export const initNewProject = 
+( fullFileName: string, workspaceName: string ) : NewProject => 
+{
+
+    //  INITIATING THE FIRST FILE 
+      const file = {
+        fileName: fullFileName,
         fileId: getUuid(),
         code: ""
       }
-
-      const files: Files = {
+   // Adding the first initiated files to 'files' array in Files Object
+      const files  = {
         files: [file],
         uid: getUuid(),
       }
-
-      const workspace: Workspace = {
+   // Adding the files ref (as a pointer) in workspace object
+      const workspace  = {
         name: workspaceName,
         id: getUuid(),
         fileRef: files.uid
 
       }
 
-      const newProject: NewProject = {files, workspace}
-
-      return newProject
-}
+      return { files, workspace }
+    }
