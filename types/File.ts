@@ -11,3 +11,6 @@ export interface Files {
     files: File[]
     uid: string
 }
+
+
+export const SelectedFile: File | null = null

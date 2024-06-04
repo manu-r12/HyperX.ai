@@ -9,7 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@codemirror/commands": "^6.6.0",
     "@codemirror/lang-javascript": "^6.2.2",
+    "@codemirror/state": "^6.4.1",
+    "@codemirror/theme-one-dark": "^6.1.2",
+    "@codemirror/view": "^6.27.0",
     "@react-icons/all-files": "^4.1.0",
     "@reduxjs/toolkit": "^2.2.5",
     "@uiw/codemirror-theme-abcdef": "^4.22.1",

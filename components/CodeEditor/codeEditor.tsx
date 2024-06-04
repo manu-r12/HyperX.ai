@@ -12,21 +12,35 @@ import Editor from '../CodeMirror/CodeMirror';
 import { LanguagesIcons } from '@/utils/langIcons';
 import { useSelector } from 'react-redux';
 import { selectNewProject } from '@/redux/selectors/selectCodeSession';
+import { File , SelectedFile} from '@/types/File';
+import { Workspace } from '@/types/Workspace';
+
+
 
 
 const CodeEditor = () => {
 
-  const [ currentState, setCurrentState ] = useState(" ")
+  const [currentState, setCurrentState] = useState(" ")
+  const [selectedFile, setSelectedFile] = useState< File | null >(null)
+
+  const [selectedWorkspace, setSelectedWorkspacfe] = useState< Workspace | null >(null)
+ 
+
   const router = useRouter()  
 
   const newProject = useSelector(selectNewProject)
 
-// NAME TO BE CHANGED 
-// CODESESSION OR SELECTCODESESSION TO => NEWPROJECT
 
-  console.log("Here is the code session =>", newProject)
+  console.log("Here is the data of new project =", newProject)
 
+  const codeFiles = newProject?.files.files
+  const workspace = newProject?.workspace
 
+  const changeSelectedFile = (file: File) =>{
+    setSelectedFile(file)
+    console.log("Selected File changed to ->", selectedFile)
+
+  }
   return (
     <div className={styles.container}>
         <div className={styles.navBarContainer}>
@@ -52,7 +66,7 @@ const CodeEditor = () => {
         <div className={styles.middleContainer}>
             <div className={styles.sideBar}>
                 <div className={styles.siderBarExplorer}>
-                    {/* <p className='flex items-center gap-2'>File Explorer <CiFileOn/></p>/ */}
+
                     <p className='flex items-center gap-2'>File Explorer</p>
                 </div>
                 <div className='flex items-center justify-center'>
@@ -64,7 +78,10 @@ const CodeEditor = () => {
                     <div className={styles.filesContainer}>
                         <div className='flex items-center gap-2'>
                           <LanguagesIcons.Python size={19}/>
-                          <p>database.py</p>
+                          {!codeFiles && <p>Loading...</p>}
+                          {codeFiles?.map((file, i) => {
+                            return <p key={i}>{file.fileName}</p>
+                          }) }
                         </div>
                     </div>
 
@@ -75,7 +92,13 @@ const CodeEditor = () => {
                 <div className={styles.layoutControls}>
                     <div className='items-center gap-2'>
                             <LanguagesIcons.Python size={19}/>
-                            <p>database.py</p>
+                            {codeFiles?.map((file, i) => {
+                            return (
+                            <p 
+                            onClick={() => changeSelectedFile(file)}
+                            key={i}>{file.fileName}</p>
+                            )
+                            })}
                     </div>
                 </div>
                 <Editor/>
