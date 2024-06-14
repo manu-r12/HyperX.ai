@@ -1,1 +1,3 @@
 Currently in Developement......
+
+Implemented some basic features 
